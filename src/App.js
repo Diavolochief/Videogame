@@ -18,7 +18,7 @@ function App() {
         />
 
         <Route
-          path='/Lista' element={<ListaVideoGames />}
+          path='/Lista' element={<ListaVideoGames/>}
         />
 
         <Route

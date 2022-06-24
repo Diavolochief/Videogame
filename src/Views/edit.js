@@ -37,13 +37,11 @@ const Edit = () => {
 
         <div className=' flex items-center justify-center '>
 
-            <div 
-           
-          
-            className='bg-green-400 h-16 w-96  mb-10 border-black rounded-lg'>
-
-                <p className='text-center py-5'>Login</p>
-            </div>
+        <input
+                            type="submit"
+                            className='bg-green-400 hover:bg-green-500 w-full mt-5 p-2 text-white uppercase font-bold'
+                            value="Agregar Platillo"
+                        />
 
         </div>
 
