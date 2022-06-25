@@ -18,7 +18,7 @@ function App() {
         />
 
         <Route
-          path='/Lista' element={<ListaVideoGames/>}
+          path='/Lista'  element={<ListaVideoGames/>}
         />
 
         <Route
@@ -27,7 +27,7 @@ function App() {
         />
 
         <Route
-          path='/editar'
+          path='/editar/:id'
           element={<Edit />}
         />
 

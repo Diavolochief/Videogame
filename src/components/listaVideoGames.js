@@ -1,7 +1,7 @@
 import React, { useEffect, useState,  } from 'react'
 import axios from 'axios'
 import Footer from './footer'
-import { useNavigate } from 'react-router-dom'
+import {useNavigate } from 'react-router-dom'
 
 const ListaVideoGames = () => {
   const [api, setApi] = useState([])
@@ -12,13 +12,16 @@ const ListaVideoGames = () => {
 
   useEffect(() => {
     const consultarApi = async () => {
-      const url = 'https://pokeapi.co/api/v2/pokemon'
+      const url = 'http://127.0.0.1:8000/api/videogames'
       const resultado = await axios.get(url)
-      console.log(resultado.data.results)
-      setApi(resultado.data.results)
+      console.log(resultado.data)
+      setApi(resultado.data)
     }
     consultarApi()
   }, [])
+
+
+
 
   return (
     <div >
@@ -32,7 +35,7 @@ const ListaVideoGames = () => {
               <h1 className='text-3xl'>Video Games</h1>
             </div>
             <div className='mr-10'>
-              <button className='font-thin bg-blue-500 hover:bg-blue-800 w-full   p-2 text-white uppercase  rounded-md'
+              <button className='font-thin bg-blue-500 hover:bg-blue-800 w-full   mt-5 p-2 text-white uppercase  rounded-md'
                 onClick={() => navigate('/guardar') }>
                 Create VideoGame
               </button>
@@ -41,8 +44,8 @@ const ListaVideoGames = () => {
 
           {/* tabla */}
 
-          <div className=' overflow-scroll  h-96'>
-            <div className='flex items-center justify-center mt-15'>
+          <div className=' overflow-y-scroll  h-96 '>
+            <div className='flex items-center justify-center mt-15 p-2'>
               <table className=" border-collapse border  w-full  border-slate-100 r shadow-lg  text-black  ">
                 <thead className='bg-gray-100 h-4/6'>
                   <tr className=''>
@@ -54,11 +57,14 @@ const ListaVideoGames = () => {
 
                 <tbody className='bg-white' >
 
-                  {api.map(poke => (
-                    <tr>
-                      <td className='border border-slate-200 p-2 '>{poke.name}</td>
-                      <td className='border border-slate-200 p-2 '>{poke.url}</td>
-                      <td className='border border-slate-200 p-2 '>{poke.name}</td>
+                  {api.map((video,id) => (
+                    
+                    <tr key={id}>
+                      <td className='border border-slate-200 p-2 '>{video.name}</td>
+                      <td className='border border-slate-200 p-2 '>{video.publication_date}</td>
+                      <td className='border border-slate-200 p-2 '><a className='text-blue-500 hover:cursor-pointer'  
+                      onClick={()=>navigate(`/editar/${video.id}`)}> editar </a> </td>
+
                     </tr>
                   ))}
                 </tbody>

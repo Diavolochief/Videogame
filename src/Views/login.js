@@ -1,6 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate();
+
     return (
         <div className=" flex items-center justify-center h-screen">
 
@@ -30,13 +33,12 @@ const Login = () => {
                     </div>
                 </div>
 
-                <div className=' flex items-center justify-center '>
+                <div className=' flex items-center justify-center mb-10'>
 
-                    <input
-                        type="submit"
-                        className='bg-green-400 hover:bg-green-500 w-full mt-5 p-2 text-white uppercase font-bold'
-                        value="Login"
-                    />
+                    <button
+                        className='bg-green-400 hover:bg-green-500 h-16 w-96  mt-2 p-5s text-white rounded-lg font-bold'
+                        onClick={() => navigate('/Lista')}
+                    >Log In</button>
 
                 </div>
 
@@ -44,7 +46,7 @@ const Login = () => {
 
         </div>
 
-       
+
 
 
     );
