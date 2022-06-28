@@ -6,6 +6,7 @@ import Login from './Views/login';
 import ListaVideoGames from './components/listaVideoGames'
 import Edit from './Views/edit'
 import Save from './Views/save'
+import Register from './Views/register.js';
 
 function App() {
   return (
@@ -18,7 +19,14 @@ function App() {
         />
 
         <Route
-          path='/Lista'  element={<ListaVideoGames/>}
+          path='/registrar'
+          element={<Register/>}
+        />
+
+
+
+        <Route
+          path='/lista' element={<ListaVideoGames />}
         />
 
         <Route

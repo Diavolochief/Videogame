@@ -1,7 +1,7 @@
-import React, { useEffect, useState,  } from 'react'
+import React, { useEffect, useState, } from 'react'
 import axios from 'axios'
 import Footer from './footer'
-import {useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const ListaVideoGames = () => {
   const [api, setApi] = useState([])
@@ -36,7 +36,7 @@ const ListaVideoGames = () => {
             </div>
             <div className='mr-10'>
               <button className='font-thin bg-blue-500 hover:bg-blue-800 w-full   mt-5 p-2 text-white uppercase  rounded-md'
-                onClick={() => navigate('/guardar') }>
+                onClick={() => navigate('/guardar')}>
                 Create VideoGame
               </button>
             </div>
@@ -57,13 +57,13 @@ const ListaVideoGames = () => {
 
                 <tbody className='bg-white' >
 
-                  {api.map((video,id) => (
-                    
+                  {api.map((video, id) => (
+
                     <tr key={id}>
                       <td className='border border-slate-200 p-2 '>{video.name}</td>
                       <td className='border border-slate-200 p-2 '>{video.publication_date}</td>
-                      <td className='border border-slate-200 p-2 '><a className='text-blue-500 hover:cursor-pointer'  
-                      onClick={()=>navigate(`/editar/${video.id}`)}> editar </a> </td>
+                      <td className='border border-slate-200 p-2 '><a className='text-blue-500 hover:cursor-pointer'
+                        onClick={() => navigate(`/editar/${video.id}`)}> editar </a> </td>
 
                     </tr>
                   ))}
