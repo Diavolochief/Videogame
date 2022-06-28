@@ -43,7 +43,7 @@ const Save = () => {
                     <div>
                         <p className='text-black mb-1'>Name</p>
                         <input
-                            className='w-96 h-16 br-25 px-3 rounded-lg text-black '
+                            className='w-96 h-16 br-25 px-3 rounded-lg text-black xl:w-11/12 '
                             placeholder='Name'
                             onChange={(event) => setName(event.target.value)}
                         />
@@ -54,7 +54,7 @@ const Save = () => {
                     <div className=' ' >
                         <p className='text-black mb-1'>Publication Date</p>
                         <input
-                            className='w-96 h-16 br-25 px-3 rounded-lg text-black  '
+                            className='w-96 h-16 br-25 px-3 rounded-lg text-black  xl:w-11/12 '
                             onChange={(event) => setPublicacionDate(event.target.value)}
                             placeholder='Publication Date'
                             type='date'
