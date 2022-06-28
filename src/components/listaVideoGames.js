@@ -13,9 +13,13 @@ const ListaVideoGames = () => {
   useEffect(() => {
     const consultarApi = async () => {
       const url = 'http://127.0.0.1:8000/api/videogames'
-      const resultado = await axios.get(url)
+      const resultado = await axios.get(url,{
+        headers:{
+          'Authorization':JSON.parse(localStorage.getItem('user'))
+        }
+      })
       console.log(resultado.data)
-      setApi(resultado.data)
+      setApi(resultado.data.data)
     }
     consultarApi()
   }, [])
@@ -28,6 +32,12 @@ const ListaVideoGames = () => {
       <div className=" flex items-center justify-center  mb-40 mt-72 h-96 ">
         <div className='bg-red-50 text-white font-bold rounded-lg border shadow-lg p-3
     w-11/12 h-11/12 mb-14'>
+            <div className='mr-10'>
+              <button className='font-thin bg-red-500 hover:bg-red-700    mt-5 p-2 text-white   rounded-md'
+                onClick={() => navigate('/')}>
+                Log-out
+              </button>
+            </div>
 
           {/* boton y texto */}
           <div className='text-black flex justify-between  mt-20 mb-12'>

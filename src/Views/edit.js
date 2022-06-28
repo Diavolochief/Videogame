@@ -22,8 +22,8 @@ const Edit = () => {
             const url = `http://127.0.0.1:8000/api/videogames/${params.id}`
             const resultado = await axios.get(url)
             console.log(resultado.data)
-            setPublicationDate(resultado.data.publication_date)
-            setName(resultado.data.name)
+            setPublicationDate(resultado.data.data.publication_date)
+            setName(resultado.data.data.name)
         }
 
 
@@ -34,8 +34,9 @@ const Edit = () => {
     const actualizar = async () => {
         console.log(name, publicationDate)
         const res = await axios.put(`http://127.0.0.1:8000/api/videogames/${params.id}`,
-            { name, publication_date: publicationDate })
-        console.log(res.data)
+            { name, publication_date: publicationDate,
+            email:JSON.parse(localStorage.getItem('user')) })
+        console.log(res.data.data)
         navigate('/lista')
     }
 

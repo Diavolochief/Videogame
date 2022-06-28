@@ -6,7 +6,7 @@ const Register = () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [auth, setAuth] = useState('')
+    
 
 
     //navigate para navegar entre las  pestañas
@@ -22,7 +22,7 @@ const Register = () => {
             email: email,
             password: password
         })
-        localStorage.setItem('user', JSON.stringify(user.data));
+        localStorage.setItem('user', JSON.stringify(user.data.data));
         navigate('/lista')  
 
     }
@@ -67,7 +67,7 @@ const Register = () => {
                         <input
                             className='w-96 h-16 br-25 px-3 rounded-lg text-black  xl:w-11/12  m-auto '
                             onChange={(event) => setPassword(event.target.value)}
-                            placeholder='Publication Date'
+                            placeholder='Type Your Password'
                             type='password'
 
                         />

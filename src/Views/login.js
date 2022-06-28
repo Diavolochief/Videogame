@@ -1,16 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Login = () => {
 
+
+
+
     //hooks de users y auth
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+
+    
+
     //navigate para usar mis rutas 
 
     const navigate = useNavigate();
+
+useEffect(() => {
+  const limpiarJson=()=>{
+    localStorage.clear();
+  }
+limpiarJson()
+
+}, [])
+
+
+
+
 
     //funcion para ingresar
     const ingresar = async () => {
@@ -20,7 +38,7 @@ const Login = () => {
             email: email,
             password: password,
         })
-        localStorage.setItem('user', JSON.stringify(user.data));
+        localStorage.setItem('user', JSON.stringify(user.data.data));
         navigate('/lista')
     }
 
@@ -38,7 +56,7 @@ const Login = () => {
                     <div className='' >
                         <p className='text-black mb-1'>Email address</p>
                         <input
-                            className='w-96  xl:w-11/12  m-auto h-16 br-25 px-3 rounded-lg border-gray-500'
+                            className='w-96 text-black xl:w-11/12  m-auto h-16 br-25 px-3 rounded-lg border-gray-500'
                             placeholder='Enter your email address'
                             onChange={(event) => setEmail(event.target.value)}
                         />
@@ -50,9 +68,10 @@ const Login = () => {
                     <div className='' >
                         <p className='text-black mb-1'>Password</p>
                         <input
-                            className=' w-96  xl:w-11/12  h-16 br-25 px-3 rounded-lg border-gray-500   '
+                            className=' w-96 text-black xl:w-11/12  h-16 br-25 px-3 rounded-lg border-gray-500   '
                             placeholder='Enter your Password'
                             onChange={(event) => setPassword(event.target.value)}
+                            type='password'
                         />
                     </div>
                 </div>

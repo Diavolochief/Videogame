@@ -15,8 +15,11 @@ const Save = () => {
     const crear = async () => {
         const url = 'http://127.0.0.1:8000/api/videogames'
         const resultado = await axios.post(url, {
-            name: name, publication_date: publicacionDate
+            name: name, publication_date: publicacionDate,
+            email: JSON.parse(localStorage.getItem('user'))
+    
         })
+
         console.log(resultado.data)
         navigate('/lista')
 
